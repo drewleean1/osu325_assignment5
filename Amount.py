@@ -21,7 +21,7 @@ def combination_sum_helper(nums, start, result, remainder, combination):
         combination.pop()
 
 
-def combination_sum(nums, target):
+def amount(nums, target):
     result = []
     combination_sum_helper(nums,0, result, target,[])
     print(result)
