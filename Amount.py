@@ -16,6 +16,7 @@ def combination_sum_helper(nums, start, result, remainder, combination):
         return # sum exceeded the target
     for i in range(start, len(nums)):
         combination.append(nums[i])
+        print(nums[i], remainder, remainder-nums[i], combination)
         combination_sum_helper(nums, i+1, result, remainder-nums[i], combination)
         #backtrack
         combination.pop()
@@ -23,6 +24,7 @@ def combination_sum_helper(nums, start, result, remainder, combination):
 
 def amount(nums, target):
     result = []
+    nums.sort()
     combination_sum_helper(nums,0, result, target,[])
     return result
 
