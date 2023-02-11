@@ -24,5 +24,4 @@ def combination_sum_helper(nums, start, result, remainder, combination):
 def amount(nums, target):
     result = []
     combination_sum_helper(nums,0, result, target,[])
-    print(result)
-
+    return result
