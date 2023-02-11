@@ -25,3 +25,4 @@ def amount(nums, target):
     result = []
     combination_sum_helper(nums,0, result, target,[])
     return result
+
