@@ -5,17 +5,20 @@
 
 
 def feedDog(hunger_level, biscuit_size):
-    #sort both arrays
-    #starting from the largest biscuit try to find a corresponding hunger level, using a binary search?
-    #if not give to the next largest dog
-    hunger_level.sort()
-    biscuit_size.sort()
-    dogs_left = len(hunger_level) - 1
-    biscuits_left = len(biscuit_size) - 1
-    number_fed = 0
+    '''function takes two arrays: hunger_level which correlates to the hunger level of the dogs; and biscuit_size which
+    is the number of biscuits we have and how much hunger they satisfy. We sort both arrays, start from the end of both
+    arrays, giving the biggest dog the biggest biscuit.'''
 
-    while dogs_left >=0 and biscuits_left >= 0:
-        if biscuit_size[biscuits_left] >= hunger_level[dogs_left]:
+    hunger_level.sort()                                 #python's built in sort function, nlogn time
+    biscuit_size.sort()
+
+    dogs_left = len(hunger_level) - 1                   #vars to keep track of where we are in the array
+    biscuits_left = len(biscuit_size) - 1
+
+    number_fed = 0                                      #var to store the result
+
+    while dogs_left >=0 and biscuits_left >= 0:         #while loop that continues if we have both dogs and biscuits left
+        if biscuit_size[biscuits_left] >= hunger_level[dogs_left]:     #condition for a biscuit to satisfy a dog's hunger
             dogs_left -= 1
             biscuits_left -= 1
             number_fed += 1
@@ -24,4 +27,3 @@ def feedDog(hunger_level, biscuit_size):
 
     return number_fed
 
-#print(feedDog([1,5], [1,2,3]))
